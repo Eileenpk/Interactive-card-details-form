@@ -19,17 +19,22 @@ body {
   font-family: var(--font-family);
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
 }
 
 .App {
   width: 100vw;
   height: 100vh;
   background: var(--main-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 }
 
 header {
   height: 15rem;
-  width: 100vw;
+  width: 100%;
   background: url('./assets/bg-main-mobile.png') no-repeat;
   background-size: cover;
   padding: 2rem 1rem 1rem;
@@ -58,10 +63,6 @@ header {
 .header--image_container_back {
   width: 16.625rem;
   margin-left: auto;
-}
-
-.header--image_container_front {
-  
 }
 
 .header--security_numbers {
@@ -141,15 +142,32 @@ header {
 form {
   display: flex;
   flex-direction: column;
+  width: 20.4375rem;
+  margin-inline: auto;
 }
 label {
   text-transform: uppercase;
   margin-bottom: 0.5625rem;
 }
+
+label:not(:first-of-type) {
+  margin-top: 1.25rem;
+}
+
+.form--exp_container input{
+  margin-top: 9px;
+}
 input {
   height: 2.8125rem;
   border-radius: 0.5rem;
   border: 1px solid #DFDEE0;
+}
+
+input:placeholder-shown,
+input {
+  text-indent: 1rem;
+  font-size: 1.125rem;
+  font-family: var(--font-family);
 }
 
 .form--name_input,
@@ -160,4 +178,21 @@ input {
 .form--month_input,
 .form--year_input {
   width: 4.5rem;
+}
+
+.form--cvc_input {
+  width: 10.25rem;
+}
+
+.form--exp_container {
+  display: flex;
+  justify-items: center;
+}
+
+.form--exp_container div {
+  margin-top: 1.25rem;
+}
+
+.form--exp_container div:not(:last-of-type) {
+  margin-right: 10px;
 }
