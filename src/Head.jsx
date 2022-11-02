@@ -1,6 +1,6 @@
 import cardBack from './assets/bg-card-back.png'
 import cardFront from './assets/bg-card-front.png'
-export default function Head({formData}) {
+export default function Head({formData, formattedCardNumber}) {
     const {name, cardNumber, month, year, cvc} = formData
     return (
         <header>
@@ -13,7 +13,7 @@ export default function Head({formData}) {
                     <div className="header--circle_large"></div>
                     <div className="header--circle_small"></div>
                     <div className='header--card_info_container'>
-                        <p className='header--card_numbers'>{!cardNumber ? '0000 0000 0000 0000' : cardNumber}</p>
+                        <p className='header--card_numbers'>{!cardNumber ? '0000 0000 0000 0000' : formattedCardNumber}</p>
                         <div className='header--card_name_and_expiration_date_container'>
                             <p className='header--card_name'>{!name ? 'jane appleseed' : name}</p>
                             <p className='header--expiration_date'>{!month ? '00/' : `${month}/`}{!year ? '00' : `${year}`}</p>

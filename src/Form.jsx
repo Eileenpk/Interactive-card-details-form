@@ -1,5 +1,5 @@
 
-export default function Form({formData, handleInput}) {
+export default function Form({formData, handleInput, formattedCardNumber}) {
     const {name, cardNumber, month, year, cvc} = formData
     return (
         <form >
@@ -19,7 +19,7 @@ export default function Form({formData, handleInput}) {
             <input 
                 className="form--card_number_input"
                 name='cardNumber'
-                value={cardNumber}
+                value={formattedCardNumber}
                 id='cardNumber'
                 aria-label="cardNumber"
                 onChange={handleInput}
