@@ -196,3 +196,16 @@ input {
 .form--exp_container div:not(:last-of-type) {
   margin-right: 10px;
 }
+
+.form--submit_btn {
+  margin-top: 1.75rem;
+  height: 3.3125rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: var(--second-color);
+  color: var(--main-color);
+  font-family: var(--font-family);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.4375rem;
+}

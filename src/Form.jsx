@@ -1,5 +1,5 @@
 
-export default function Form({formData, handleInput, formattedCardNumber}) {
+export default function Form({formData, handleInput, formattedCardNumber, handleSubmit}) {
     const {name, cardNumber, month, year, cvc} = formData
     return (
         <form >
@@ -72,7 +72,7 @@ export default function Form({formData, handleInput, formattedCardNumber}) {
                     />
                 </div>
             </div>
-            
+            <button onClick={handleSubmit} className='form--submit_btn'>Confirm</button>
         </form>
     )
 }

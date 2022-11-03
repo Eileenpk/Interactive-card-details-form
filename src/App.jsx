@@ -13,6 +13,7 @@ function App() {
     cvc: ''
   })
   const [formattedCardNumber, setFormattedCardNumber] = useState('')
+  const [formSubmitted, setFormSubmitted] = useState(false)
 // code I'm proud of *** thank you stack overflow!! ***
   useEffect(() => {
     setFormattedCardNumber(prevFormat => {
@@ -30,7 +31,11 @@ function App() {
       }
     })
   }
-
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    
+    setFormSubmitted(true)
+  }
   return (
     <div className="App">
       <Head 
@@ -38,6 +43,7 @@ function App() {
       formData={formData}
       />
       <Form 
+        handleSubmit={handleSubmit}
         formattedCardNumber={formattedCardNumber}
         formData={formData}
         handleInput={handleInput}
