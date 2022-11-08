@@ -209,3 +209,9 @@ input {
   font-weight: 500;
   line-height: 1.4375rem;
 }
+
+.form--error {
+  color: #FF5050;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+}

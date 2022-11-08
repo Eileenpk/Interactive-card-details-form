@@ -6,11 +6,11 @@ import Form from './Form'
 
 function App() {
   const [formData, setFormData] = useState({
-    name: '',
     cardNumber: '',
     month: '',
     year:'',
-    cvc: ''
+    cvc: '',
+    name: ''
   })
   const [formattedCardNumber, setFormattedCardNumber] = useState('')
   const [formSubmitted, setFormSubmitted] = useState(false)
@@ -22,18 +22,31 @@ function App() {
     })
   },[formData.cardNumber])
   
-  const handleInput = (event) => {
-    const {name, value } = event.target
+  const handleInput = (e) => {
+    const {name, value } = e.target
+		if (name === "month" || name === "year") e.target.value = value.toString().replace(/[^0-9]/g, '').substring(0, 2)
+		if (name === "month" && value > 12) e.target.value = "12"
+		if (name === "cvc") e.target.value = value.substring(0, 3)
     setFormData(prevFormData => {
       return {
         ...prevFormData,
-        [name]: value
+        [name]: e.target.value
       }
     })
   }
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    
+
+  function containsOnlyNumbers(str) {
+    const removedSpaces = str.replace(/\s/g, '')
+    return /^\d+$/.test(removedSpaces);
+}
+const [onlyNumbers, setOnlyNumbers] = useState(true)
+useEffect(()=> {
+if(formData.cardNumber.length > 0) {
+    setOnlyNumbers(containsOnlyNumbers(formData.cardNumber))
+}
+}, [formData.cardNumber])
+  const handleSubmit = (e) => {
+    e.preventDefault()
     setFormSubmitted(true)
   }
   return (
@@ -43,6 +56,8 @@ function App() {
       formData={formData}
       />
       <Form 
+        onlyNumbers={onlyNumbers}
+        formSubmitted={formSubmitted}
         handleSubmit={handleSubmit}
         formattedCardNumber={formattedCardNumber}
         formData={formData}
