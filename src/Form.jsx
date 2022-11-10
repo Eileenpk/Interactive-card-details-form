@@ -1,6 +1,6 @@
-import {useState, useEffect} from 'react'
-export default function Form({formData, handleInput, formattedCardNumber, handleSubmit, formSubmitted, onlyNumbers}) {
-    const {name, cardNumber, month, year, cvc} = formData
+export default function Form({formData, handleInput, formattedCardNumber, handleSubmit, formErrors}) {
+    const {name, month, year, cvc} = formData
+    
     return (
         <form >
             <label htmlFor="name" className="form--name_label"
@@ -14,7 +14,7 @@ export default function Form({formData, handleInput, formattedCardNumber, handle
                 onChange={handleInput}
                 placeholder='e.g. Jane Appleseed'
             />
-            {formSubmitted && name.length <= 0 && <div className="form--error">Name can't be blank</div>}
+            <div className="form--error">{formErrors.name}</div>
             <label htmlFor="cardNumber" className="form--cardNumber_label"
             aria-labelledby="cardNumber">Card Number</label>
             <input 
@@ -26,8 +26,7 @@ export default function Form({formData, handleInput, formattedCardNumber, handle
                 onChange={handleInput}
                 placeholder='e.g. 1234 5678 9123 0000'
             />
-            {formSubmitted && cardNumber.length !== 19 && <div className="form--error">Card number length must be 16</div>}
-            {formSubmitted && !onlyNumbers && <div className="form--error">Wrong format, numbers only</div>}
+            <div className="form--error">{formErrors.cardNumber}</div>
             <div className="form--exp_container">
                 <div className="form--month_container">
                     <label htmlFor="month" className="form--month_label"
@@ -41,7 +40,7 @@ export default function Form({formData, handleInput, formattedCardNumber, handle
                         onChange={handleInput}
                         placeholder='MM'
                     />
-                    {formSubmitted && month.length !== 2 && <div className="form--error">Can't be blank</div>}
+                  <div className="form--error">{formErrors.month}</div>
                 </div>
             
                 <div className="form--month_container">
@@ -56,7 +55,7 @@ export default function Form({formData, handleInput, formattedCardNumber, handle
                         onChange={handleInput}
                         placeholder='YY'
                     />
-                    {formSubmitted && year.length !== 2 && <div className="form--error">Can't be blank</div>}
+                <div className="form--error">{formErrors.year}</div>
                 </div>
                 <div className="form--cvc_container">
                     <label htmlFor="cvc" className="form--cvc_label"
@@ -71,7 +70,7 @@ export default function Form({formData, handleInput, formattedCardNumber, handle
                         placeholder='e.g. 123'
                         minLength={3}
                     />
-                    {formSubmitted && cvc.length !== 3 && <div className="form--error">Can't be blank</div>}
+                    <div className="form--error">{formErrors.cvc}</div>
                 </div>
             </div>
             <button onClick={handleSubmit} className='form--submit_btn'>Confirm</button>

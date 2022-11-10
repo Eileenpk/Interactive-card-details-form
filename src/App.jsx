@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 import Head from './Head'
 import Form from './Form'
-
+import FormThankYou from './FormThankYou'
 function App() {
   const [formData, setFormData] = useState({
     cardNumber: '',
@@ -12,6 +11,13 @@ function App() {
     cvc: '',
     name: ''
   })
+  const [formErrors, setFormErrors] = useState({
+    cardNumber: '',
+    month: '',
+    year:'',
+    cvc: '',
+    name: ''
+})
   const [formattedCardNumber, setFormattedCardNumber] = useState('')
   const [formSubmitted, setFormSubmitted] = useState(false)
 // code I'm proud of *** thank you stack overflow!! ***
@@ -21,12 +27,49 @@ function App() {
         return prevFormat
     })
   },[formData.cardNumber])
+
+  function containsOnlyNumbers(str) {
+    const removedSpaces = str.replace(/\s/g, '')
+    return /^\d+$/.test(removedSpaces);
+}
+  const validate = (values) => {
+    const errors = {};
+    const regexCardNumber = containsOnlyNumbers(values.cardNumber)
+    const regexMonth = containsOnlyNumbers(values.month)
+    const regexYear = containsOnlyNumbers(values.year)
+    const regexCvc = containsOnlyNumbers(values.cvc)
+    if (!values.name) {
+      errors.name = "Name can't be blank";
+    }
+    if (!values.cardNumber) {
+      errors.cardNumber = "Card number can't be blank";
+    } else if (!regexCardNumber) {
+      errors.cardNumber = "Wrong format, numbers only";
+    } else if (values.cardNumber.length !== 19){
+      errors.cardNumber = "Card number length must be 16"
+    }
+    if (!values.month) {
+      errors.month = "Can't be blank";
+    } else if(!regexMonth) {
+      errors.month = "Wrong format, numbers only"
+    }
+    if (!values.year) {
+      errors.password = "Can't be blank";
+    } else if(!regexYear) {
+      errors.year = "Wrong format, numbers only"
+    }
+    if (!values.cvc) {
+      errors.cvc = "Can't be blank"
+    } else if(!regexCvc) {
+      errors.Cvc = "Wrong format, numbers only"
+    }
+    return errors;
+  };
   
+  const noErrors = Object.keys(formErrors).length === 0 ? true : false
+
   const handleInput = (e) => {
     const {name, value } = e.target
-		if (name === "month" || name === "year") e.target.value = value.toString().replace(/[^0-9]/g, '').substring(0, 2)
-		if (name === "month" && value > 12) e.target.value = "12"
-		if (name === "cvc") e.target.value = value.substring(0, 3)
     setFormData(prevFormData => {
       return {
         ...prevFormData,
@@ -35,18 +78,9 @@ function App() {
     })
   }
 
-  function containsOnlyNumbers(str) {
-    const removedSpaces = str.replace(/\s/g, '')
-    return /^\d+$/.test(removedSpaces);
-}
-const [onlyNumbers, setOnlyNumbers] = useState(true)
-useEffect(()=> {
-if(formData.cardNumber.length > 0) {
-    setOnlyNumbers(containsOnlyNumbers(formData.cardNumber))
-}
-}, [formData.cardNumber])
   const handleSubmit = (e) => {
     e.preventDefault()
+    setFormErrors(validate(formData))
     setFormSubmitted(true)
   }
   return (
@@ -55,16 +89,19 @@ if(formData.cardNumber.length > 0) {
       formattedCardNumber={formattedCardNumber}
       formData={formData}
       />
-      <Form 
-        onlyNumbers={onlyNumbers}
+      { !noErrors || !formSubmitted ?
+      <Form
         formSubmitted={formSubmitted}
         handleSubmit={handleSubmit}
         formattedCardNumber={formattedCardNumber}
         formData={formData}
         handleInput={handleInput}
+        formErrors={formErrors}
       />
+     :
+     <FormThankYou />}
     </div>
-  )
+)
 }
 
 export default App
