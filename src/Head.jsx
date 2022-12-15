@@ -3,7 +3,7 @@ import cardFront from './assets/bg-card-front.png'
 export default function Head({formData, formattedCardNumber}) {
     const {name, cardNumber, month, year, cvc} = formData
     return (
-        <header>
+        <header className='head--container'>
             <div className='header--cards_image_container'>
                 <div className="header--image_container_back "><img className='header--card_back' src={cardBack} alt="back of credit card" />
                 <p className='header--security_numbers'>{!cvc ? '000' : cvc}</p>

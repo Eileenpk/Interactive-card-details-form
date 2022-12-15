@@ -52,6 +52,8 @@ function App() {
       errors.month = "Can't be blank";
     } else if(!regexMonth) {
       errors.month = "Wrong format, numbers only"
+    } else if(values.month > 12) {
+      errors.month = "Must be less then 12"
     }
     if (!values.year) {
       errors.password = "Can't be blank";
@@ -70,6 +72,15 @@ function App() {
 
   const handleInput = (e) => {
     const {name, value } = e.target
+    // if(name !== 'name') {
+    //   const result = e.target.replace(/\D/g, '').value;
+    //   setFormData(prevFormData => {
+    //     return {
+    //       ...prevFormData,
+    //       [name]: result
+    //     }
+    //   })
+    // }
     setFormData(prevFormData => {
       return {
         ...prevFormData,
@@ -99,7 +110,10 @@ function App() {
         formErrors={formErrors}
       />
      :
-     <FormThankYou />}
+     
+      <FormThankYou />
+     
+     }
     </div>
 )
 }

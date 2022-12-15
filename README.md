@@ -17,7 +17,7 @@ Users should be able to:
 - View the optimal layout depending on their device's screen size
 - See hover, active, and focus states for interactive elements on the page
 
-### Expected behaviour
+### Expected behavior
 
 - Update the details on the card as the user fills in the fields
 - Validate the form fields when the form is submitted
