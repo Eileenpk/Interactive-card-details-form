@@ -72,15 +72,6 @@ function App() {
 
   const handleInput = (e) => {
     const {name, value } = e.target
-    // if(name !== 'name') {
-    //   const result = e.target.replace(/\D/g, '').value;
-    //   setFormData(prevFormData => {
-    //     return {
-    //       ...prevFormData,
-    //       [name]: result
-    //     }
-    //   })
-    // }
     setFormData(prevFormData => {
       return {
         ...prevFormData,
@@ -95,7 +86,7 @@ function App() {
     setFormSubmitted(true)
   }
   return (
-    <div className="App">
+    <div className="App h-full w-full flex flex-col items-center lg:flex-row ">
       <Head 
       formattedCardNumber={formattedCardNumber}
       formData={formData}

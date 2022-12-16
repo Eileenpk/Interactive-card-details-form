@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
@@ -14,325 +18,97 @@
   --shadow: 0px 39px 60px 0px #00000024;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 16px;
-  font-family: var(--font-family);
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-}
-
 .App {
-  width: 100vw;
   height: 100vh;
-  background: var(--main-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
 }
 
-header {
-  height: 15rem;
-  width: 100%;
-  background: url('./assets/bg-main-mobile.png') no-repeat;
-  background-size: cover;
-  padding: 2rem 1rem 1rem;
-  color: var(--main-color);
-  display: flex;
-  justify-content: center;
-  position: relative;
-  margin-bottom: 5.6875rem;
-}
-
-.header--cards_image_container {
-  margin-top: 1rem;
-  width: 21.4375rem;
-}
-
-/* @ media for .head--cards_image_container max-width: 33.8125rem; */
-
-.header--image_container_back,
-.header--image_container_front {
-  height: 9.8125rem;
-  width: 17.8125rem;
-  object-fit: cover;
-}
-
-.header--image_container_back {
-  width: 16.625rem;
-  margin-left: auto;
-}
-
-.header--security_numbers {
-  position: relative;
-  bottom: 5.6rem;
-  left: 13.5rem;
-  font-size: 0.5625rem;
-  line-height: 0.6875rem;
-  letter-spacing: 1.29px;
-}
-
-.header--image_container_front {
-  position: relative;
-  bottom: 4.29rem;
-  left: 0.8rem;
-  box-shadow: var(--shadow);
-}
-.header--card_back,
-.header--card_front {
-  width: 100%;
-  height: 100%;
-}
-
-.header--circle_large,
-.header--circle_small{
-  background: var(--main-color);
-  position: absolute;
-  
-}
-
-.header--circle_large {
-  height: 1.875rem;
-  width: 1.875rem;
-  border-radius: 50%;
-  bottom: 7rem;
-  left: 1.8rem;
-}
-
-.header--circle_small {
-  height: 0.8125rem;
-  width: 0.8125rem;
-  border: 1px solid var(--main-color);
-  border-radius: 50%;
-  background: transparent;
-  bottom: 7.5rem;
-  left: 4.5rem;
-}
-
-.header--card_info_container {
-  position: absolute;
-  bottom: 1rem;
-  left: 1.1875rem;
-}
-
-.header--card_numbers {
-  font-size: 1.125rem;
-  line-height: 1.4375rem;
-  letter-spacing: 2px;
-  font-weight: 500;
-}
-
-.header--card_name_and_expiration_date_container {
-  display: flex;
-  align-items: center;
-  margin-top: 1.0625rem;
-  font-size: 0.5625rem;
-  line-height: 0.6875rem;
-  letter-spacing: 1.29px;
-}
-
-.header--card_name {
-  margin-right: 7.75rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  line-height: 18px;
-}
-
-/* Form */
-
-form {
-  display: flex;
-  flex-direction: column;
-  width: 20.4375rem;
-  margin-inline: auto;
-}
-label {
-  text-transform: uppercase;
-  margin-bottom: 0.5625rem;
-}
-
-label:not(:first-of-type) {
-  margin-top: 1.25rem;
-}
-
-.form--exp_container input{
-  margin-top: 9px;
-}
-input {
-  height: 2.8125rem;
-  border-radius: 0.5rem;
-  border: 1px solid #DFDEE0;
-}
-
-input:placeholder-shown,
-input {
-  text-indent: 1rem;
-  font-size: 1.125rem;
+/* typography */
+html {
   font-family: var(--font-family);
-}
-
-.form--name_input,
-.form--card_number_input {
-  width: 20.4375rem;
-}
-
-.form--month_input,
-.form--year_input {
-  width: 4.5rem;
-}
-
-.form--cvc_input {
-  width: 10.25rem;
-}
-
-.form--exp_container {
-  display: flex;
-  justify-items: center;
-}
-
-.form--exp_container div {
-  margin-top: 1.25rem;
-}
-
-.form--exp_container div:not(:last-of-type) {
-  margin-right: 10px;
-}
-
-.form--submit_btn {
-  margin-top: 1.75rem;
-  width: 20.4375rem;
-  height: 3.3125rem;
-  border-radius: 0.5rem;
-  border: none;
-  background: var(--second-color);
-  color: var(--main-color);
-  font-family: var(--font-family);
-  font-size: 1.125rem;
   font-weight: 500;
-  line-height: 1.4375rem;
 }
-
-.form--error {
-  color: #FF5050;
-  font-size: 0.75rem;
-  margin-top: 0.5rem;
-}
-
-/* Form thank you */
-
-.thank-you {
-  height: 291px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-}
-
-.thank-you img {
-  margin-bottom: 35px;
-}
-
-.thank-you h1 {
-  font-weight: 500;
+h1 {
   font-size: 28px;
-  line-height: 35px;
+  line-height: 36px;
   letter-spacing: 3.42px;
-  margin-bottom: 16px;
 }
 
-.thank-you h2 {
+h2 {
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 2px;
   color: var(--second-font-color);
+}
+
+input:placeholder-shown {
   font-size: 18px;
   line-height: 23px;
-  font-weight: 500;
+  letter-spacing: 0px;
+  text-indent: 16px;
 }
 
-@media(min-width: 1110px) {
-  .App {
-    flex-direction: row;
-  }
+label {
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 2px;
+  color: var(--font-color);
+  text-transform: uppercase;
+}
 
-  .head--container {
-    width: 483px;
-    height: 100vh;
-    margin-bottom: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
+header h1 {
+  font-size: 18px;
+  line-height: 23px;
+  letter-spacing: 2.200000047683716px;
+  color: var(--main-color);
+}
 
-  .header--cards_image_container {
-    max-height: 572px;
-    margin: 0;
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-between;
-  }
+header p {
+font-size: 9px;
+line-height: 11px;
+letter-spacing: 1.2857142686843872px;
+color: var(--main-color);
+}
 
-  .header--image_container_front {
-    top: 0;
-    margin-left: 164px;
-    width: 447px;
-    height: 245px;
-  }
+/* typography media query */
+@media(min-width: 1000px) {
 
-  .header--image_container_back {
-    width: 447px;
-    height: 245px;
-    margin-top: 37px;
-    margin-left: 258px;
+  
+ h2 {
+    font-size: 18px;
+    line-height: 23px;
+    letter-spacing: 0px;
   }
-
-  .header--circle_large {
-    top: 28px;
-    width: 47px;
-    height: 47px;
-  }
-
-  .header--circle_small {
-    top: 40px;
-    left: 92px;
-    width: 21px;
-    height: 21px;
-
-  }
-
-  .header--card_info_container {
-    top: 139px;
-    left: 32px;
-  }
-  .header--card_numbers {
+  
+  header h1 {
     font-size: 28px;
+    line-height: 36px;
+    letter-spacing: 3.422222137451172px;
   }
-
-  .header--card_name_and_expiration_date_container {
-    justify-content: space-between;
-  }
-
-  .header--card_name {
+  
+  header p {
     font-size: 14px;
-  }
-  .header--expiration_date {
-    font-size: 14px;
-  }
-
-  .header--security_numbers {
-    font-size: 14px;
-    left: 363px;
-    bottom: 8.4rem;
-  }
-
-  .thank-you {
-    margin: 0 555px;
-    width: 381px;
-    height: 291px;
+    line-height: 18px;
+    letter-spacing: 2px;
   }
 }
 
+/* Head styles */
 
-/* 335 lines of code before refactoring */
+.header--image_container_front {
+  box-shadow: var(--shadow);
+}
+
+/* Form styles */
+
+label {
+  margin-bottom: 9px;
+}
+
+input,
+input:active,
+input:focus {
+  border: 1px solid #DFDEE0;
+  height: 45px;
+  border-radius: 8px;
+  text-indent: 16px;
+}
