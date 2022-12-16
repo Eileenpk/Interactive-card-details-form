@@ -12,6 +12,13 @@
 - [Author](#author)
 
 ## Overview
+Here is an Interactive Card Details Form coding challenge project from Frontend Mentor. it uses Semantic HTML5 markup, CSS custom properties, Tailwind CSS, a mobile-first workflow, and React.js:
+The project involved creating an interactive form for entering credit card details. The form should have input fields for the cardholder's name, card number, expiration date, and security code. 
+To begin, the project uses Semantic HTML5 markup to structure the content of the form in a logical and meaningful way. This includes using appropriate tags such as form, label, and input to create a clear hierarchy and make the form easy to understand and use.
+The project also uses CSS custom properties to define reusable styles that can be easily modified and updated. This allows for greater flexibility and maintainability of the form's design.
+The project employs a mobile-first workflow, meaning that the form is designed to be responsive and work well on mobile devices. This is achieved through the use of Tailwind CSS, a utility-first CSS framework that provides a set of pre-defined classes for styling HTML elements.
+Finally, the project utilizes React.js to add interactive functionality to the form. This includes the ability to show the input form details on the preview card, as well as the validation of the input fields to ensure that the form is filled out correctly.
+Overall, this Interactive Card Details Form coding challenge project combines the use of Semantic HTML5 markup, CSS custom properties, Tailwind CSS, a mobile-first workflow, and React.js to create a user-friendly and functional form for entering credit card details.
 
 
 ### The challenge
