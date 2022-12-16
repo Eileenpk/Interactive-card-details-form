@@ -41,7 +41,7 @@ Reset the form when the user clicks "Continue" on the completed state
 ### Links
 
 - Solution URL: [GitHub](https://github.com/Eileenpk/Interactive-details-form)
-- Live Site URL: [live site](https://eileenpk.github.io/order-summary-component/)
+- Live Site URL: [live site](https://eileenpk.github.io/Interactive-details-form/)
 
 ### Built with
 
