@@ -31,12 +31,12 @@ If there are no errors, display the completed state
 Reset the form when the user clicks "Continue" on the completed state
 ### Screenshot
 
-![screen shot of full screen webpage](https://github.com/Eileenpk/order-summary-component/blob/main/images/Screenshot-full-website.png)
-![screen shot of mobile webpage](https://github.com/Eileenpk/order-summary-component/blob/main/images/Screenshot-mobile.png)
+![screen shot of full screen webpage](https://github.com/Eileenpk/Interactive-details-form/blob/main/src/assets/full-website.png)
+![screen shot of mobile webpage](https://github.com/Eileenpk/Interactive-details-form/blob/main/src/assets/mobile.png)
 ### Links
 
-- Solution URL: [GitHub](https://github.com/Eileenpk/order-summary-component)
-- Live Site URL: [live site]( https://eileenpk.github.io/order-summary-component/)
+- Solution URL: [GitHub](https://github.com/Eileenpk/Interactive-details-form)
+- Live Site URL: [live site](https://eileenpk.github.io/order-summary-component/)
 
 ### Built with
 
