@@ -38,6 +38,8 @@ function App() {
     const regexMonth = containsOnlyNumbers(values.month)
     const regexYear = containsOnlyNumbers(values.year)
     const regexCvc = containsOnlyNumbers(values.cvc)
+    const currentYear = new Date().getFullYear();
+    const lastTwoDigitsOfYear = currentYear.toString().slice(-2);
     if (!values.name) {
       errors.name = "Name can't be blank";
     }
@@ -59,6 +61,8 @@ function App() {
       errors.password = "Can't be blank";
     } else if(!regexYear) {
       errors.year = "Wrong format, numbers only"
+    } else if (values.year < lastTwoDigitsOfYear) {
+      errors.year = "year can't be less then current year"
     }
     if (!values.cvc) {
       errors.cvc = "Can't be blank"
