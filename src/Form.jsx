@@ -6,7 +6,7 @@ export default function Form({formData, handleInput, formattedCardNumber, handle
             <label htmlFor="name" className="form--name_label"
             >Cardholder Name</label>
             <input 
-                className="form--name_input lg:w-[381px] "
+                className="form--name_input lg:w-[381px] min-h-[45px]"
                 name='name'
                 value={name}
                 id='name'
@@ -18,7 +18,7 @@ export default function Form({formData, handleInput, formattedCardNumber, handle
             <label htmlFor="cardNumber" className="form--cardNumber_label mt-[18px] lg:mt-[26px]"
             >Card Number</label>
             <input 
-                className="form--card_number_input lg:w-[381px]"
+                className="form--card_number_input lg:w-[381px] min-h-[45px]"
                 name='cardNumber'
                 value={formattedCardNumber}
                 id='cardNumber'
@@ -76,7 +76,7 @@ export default function Form({formData, handleInput, formattedCardNumber, handle
                     <div className="form--error text-error-color mt-2 text-xs leading-3">{formErrors.cvc}</div>
                 </div>
             </div>
-            <button onClick={handleSubmit} className='form--submit_btn bg-second-color text-main-color w-[327px] h-[53px] rounded-lg lg:w-[381px]' aria-label="confirm button">Confirm</button>
+            <button onClick={handleSubmit} className='form--submit_btn bg-second-color text-main-color w-[327px] min-h-[53px] rounded-lg lg:w-[381px]' aria-label="confirm button">Confirm</button>
         </form>
     )
 }
